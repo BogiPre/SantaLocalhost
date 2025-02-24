@@ -1,5 +1,3 @@
-import { NextFunction } from "express";
-
 export interface Question {
   id: number;
   text: string;
@@ -14,27 +12,4 @@ export interface ScanResult {
   verdict: 'NAUGHTY' | 'NICE';
   message: string;
   score: number;
-  country?: string;
-  timestamp?: Date;
 }
-
-export interface ErrorResponse {
-  error: {
-    message: string;
-    status: number;
-  };
-}
-
-export interface HealthCheckResponse {
-  status: 'healthy' | 'degraded';
-  services: {
-    database: 'connected' | 'disconnected';
-    cache: 'connected' | 'disconnected';
-  };
-}
-
-export type AsyncRequestHandler = (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => Promise<void>;

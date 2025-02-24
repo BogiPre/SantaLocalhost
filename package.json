@@ -11,19 +11,9 @@
     "dev": "concurrently \"cd frontend && npm run dev\" \"cd backend && npm run dev\"",
     "build": "cd frontend && npm run build && cd ../backend && npm run build && npm run copy-frontend",
     "copy-frontend": "mkdir -p backend/dist/public && cp -r frontend/dist/* backend/dist/public/",
-    "start": "cd backend && npm start",
-    "test": "k6 run tests/k6/santa-scanner.js",
-    "test:smoke": "k6 run --tag test_type=smoke tests/k6/santa-scanner.js",
-    "test:load": "k6 run --tag test_type=load tests/k6/santa-scanner.js",
-    "test:stress": "k6 run --tag test_type=stress tests/k6/santa-scanner.js",
-    "test:extreme": "k6 run --tag test_type=extreme_stress tests/k6/santa-scanner.js"
+    "start": "cd backend && npm start"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
-  },
-  "dependencies": {
-    "compression": "^1.8.0",
-    "express-rate-limit": "^7.5.0",
-    "redis": "^4.7.0"
   }
 }
